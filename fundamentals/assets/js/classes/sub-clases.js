@@ -45,25 +45,27 @@ class Persona {         //propeidades y metodos estaticos
 
 }
 
-const spiderman = new Persona( 'Peter Parker', 'Spider', 'Soy tu amigable vecino Spiderman' );
-const ironman = new Persona( 'Tony Stark', 'Ironman', 'Yo soy Ironman' );
 
-spiderman.quienSoy();
-// spiderman.miFrase();
-// ironman.quienSoy();
-// ironman.miFrase();
+class Heroe extends Persona {
 
-spiderman.setComidaFavorita = 'El pie de cereza de la tia May';
-console.log( spiderman.getComidaFavorita );
+    clan = 'sin clan';
+
+    constructor(nombre, codigo, frase) {
+
+        super(nombre, codigo, frase);
+        
+        this.clan = 'Los Avengers'
+    }
+
+    quienSoy() {
+        console.log(`Soy ${ this.nombre }, ${ this.clan }`);
+        super.quienSoy();
+    }
+}
+
+
+const spiderman = new Heroe( 'Peter Parker', 'Spider', 'Soy tu amigable vecino Spiderman' );
+// const spiderman = new Heroe();
+
 console.log( spiderman );
-
-
-// Persona._conteo = 2;
-console.log( 'Conteo Persona', Persona._conteo );
-console.log( Persona.conteo );
-Persona.mensaje();
-
-Persona.propiedadExterna = 'Hola Mundo';
-
-console.log( Persona.propiedadExterna );
-console.log( Persona );
+spiderman.quienSoy();
